@@ -1,0 +1,466 @@
+input,textarea{margin:0;padding:0;border:none; outline:none;}
+textarea{ resize:none; overflow:auto;}
+em{ font-style:normal;}
+ul{margin:0;padding:0; list-style:none;}
+h1,p,h2{margin:0; font-weight:normal;}
+a,input{-webkit-tap-highlight-color:rgba(255,0,0,0);}
+img{ border:none; vertical-align:top;}
+body{
+	margin: 0;
+	padding: 0;
+	font-family: Arial,'微软雅黑';
+	color: #666;
+	position: relative;
+}
+.page{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;	
+	overflow: auto;
+	z-index: 1;
+	display: none;
+}
+.show{
+	display: block;
+}
+.path:nth-of-type(1){z-index: 10;}
+.path:nth-of-type(2){z-index: 9;}
+.path:nth-of-type(3){z-index: 8;}
+.path:nth-of-type(4){z-index: 7;}
+.path:nth-of-type(5){z-index: 6;}
+.btn{
+	position: absolute;
+	bottom: 17px;
+	left: 17px;
+	width: 606px;
+	height: 74px;
+	font-size: 28px;
+	background:#cacaca; 
+	color: #fff;
+	border-radius: 5px;
+}
+.submit{ background:#3c9bbb; color:#fff;}
+.info{
+	font-size: 24px;
+	line-height: 60px;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	bottom: 90px;
+	-webkit-transform-origin: bottom;
+	-webkit-transform: scale(0);
+	transform-origin: bottom;
+	transform: scale(0);
+	opacity: 0;
+	transition: 0.5s;
+}
+.scrollWrap{
+	position: relative;
+	height: 100%;
+	min-height: 1136px;
+	overflow: hidden;
+}
+/* 欢迎页 */
+@-webkit-keyframes tree{
+	100%{
+		opacity: 1;
+		-webkit-transform: translateY(0px);
+	}
+}
+@keyframes tree{
+	100%{
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+@-webkit-keyframes logo{
+	100%{
+		opacity: 1;
+	}
+}
+@keyframes logo{
+	100%{
+		opacity: 1;
+	}
+}
+@-webkit-keyframes shake{
+	0%{
+		-webkit-transform: rotate(0deg);
+	}
+	20%{
+		-webkit-transform: rotate(40deg);
+	}
+	40%{
+		-webkit-transform: rotate(-30deg);
+	}
+	60%{
+		-webkit-transform: rotate(30deg);
+	}
+	80%{
+		-webkit-transform: rotate(-40deg);
+	}
+	100%{
+		-webkit-transform: rotate(0deg);
+	}
+}
+@keyframes shake{
+	0%{
+		transform: rotate(0deg);
+	}
+	20%{
+		transform: rotate(40deg);
+	}
+	40%{
+		transform: rotate(-30deg);
+	}
+	60%{
+		transform: rotate(30deg);
+	}
+	80%{
+		transform: rotate(-40deg);
+	}
+	100%{
+		transform: rotate(0deg);
+	}
+}
+@-webkit-keyframes cloud{
+	0%{
+		-webkit-transform: translateX(0px);
+	}
+	
+	100%{
+		-webkit-transform: translateX(30px);
+	}
+}
+@keyframes cloud{
+	0%{
+		transform: translateX(0px);
+	}
+	
+	100%{
+		transform: translateX(30px);
+	}
+}
+@-webkit-keyframes news{
+	100%{
+		-webkit-transform: scale(1.3);
+		opacity: 0.8;
+	}
+}
+@keyframes news{
+	100%{
+		transform: scale(1.3);
+		opacity: 0.8;
+	}
+}
+#welcome{
+	transition: 1s;
+}
+.tree{
+	position: absolute;
+	left: 0;
+	top: 10%;
+	width: 100%;
+	opacity: 0;
+	-webkit-transform: translateY(100px);
+	transform: translateY(100px);
+	-webkit-animation: 1s tree;
+	animation: tree 1s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+.welcome{
+	position: relative;
+	padding-top: 50px;
+	opacity: 0;
+	-webkit-transform: translateY(50px);
+	transform: translateY(50px);
+	-webkit-animation: tree 1s .3s;
+	animation: tree 1s .3s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+.shake{
+	position: absolute;
+	left: 509px;
+	top: 12px;
+	width: 28px;
+	height: 31px;
+	background: url(img/shake.png) no-repeat;
+	-webkit-animation: shake .3s 2s;
+	animation: shake .3s 2s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+	-webkit-transform-origin: left bottom;
+	transform-origin: left bottom;
+}
+.title2{
+	padding-top: 20px;
+	opacity: 0;
+	-webkit-transform: translateY(30px);
+	transform: translateY(30px);
+	-webkit-animation: tree 1s .6s;
+	animation: tree 1s .6s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+.cloud{
+	position: absolute;
+	background: url(img/cloud.png) no-repeat;
+	background-size: contain;
+}
+.cloud:nth-of-type(1){
+	left: 432px;
+	top: 15px;
+	width: 58px;
+	height: 44px;
+	-webkit-animation: cloud 3s 2s infinite alternate linear;
+	animation: cloud 3s 2s infinite alternate linear;
+}
+.cloud:nth-of-type(2){
+	left: 79px;
+	top: 77px;
+	width: 91px;
+	height: 70px;
+	-webkit-animation: cloud 3s 2.5s infinite alternate linear;
+	animation: cloud 3s 2.5s infinite alternate linear;
+}
+.cloud:nth-of-type(3){
+	left: 402px;
+	top: 142px;
+	width: 54px;
+	height: 41px;
+	-webkit-animation: cloud 3s 3s infinite alternate linear;
+	animation: cloud 3s 3s infinite alternate linear;
+}
+.logo{
+	position: absolute;
+	left: 0;
+	bottom: 5%;
+	width: 100%;
+	text-align: center;
+	opacity: 0;
+	-webkit-animation: logo .5s 1s;
+	animation: logo .5s 1s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+/* 首页 */
+#home{
+	transition: .5s;
+}
+#tab{
+	position: relative;
+	width: 100%;
+	height: 342px;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+#picList{
+	width: 500%;
+	overflow: hidden;
+}
+#picList li{
+	float: left;
+	width: 20%;
+}
+#picList li img{
+	width: 100%;
+	height: 342px;
+}
+.newsBtn{
+	position:absolute;
+	top:20px;right:20px;
+	width:78px;
+	height:78px; 
+}
+.newsBtn em{
+	width:56px;
+	height:56px;
+	padding:11px 11px; 
+	font-size:22px; 
+	line-height:28px; 
+	letter-spacing:2px; 
+	text-align:center; 
+	background:rgba(230,0,18,0.5);
+	color:#fff; 
+	text-decoration:none;
+	border-radius:39px; 
+	font-size:21px;
+	z-index:2; 
+	position:absolute;
+	left:0;
+	top:0;
+}
+.newsBtn span{
+	width:78px;
+	height:78px;
+	background:rgba(230,0,18,0.3);
+	position:absolute;
+	left:0;
+	top:0; 
+	border-radius:39px; 
+	opacity:0.1; 
+	-webkit-transform:scale(0);
+	transform:scale(0);
+}
+.newsBtn span:nth-of-type(1){ animation:news 2s infinite alternate;}
+.newsBtn span:nth-of-type(2){ animation:news 2s .5s infinite alternate;}
+.newsBtn span:nth-of-type(3){ animation:news 2s 1s infinite alternate;}
+.mask{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 102px;
+	background: -webkit-linear-gradient(bottom,rgba(0,0,0,0.9),rgba(0,0,0,0));
+	background: linear-gradient(bottom,rgba(0,0,0,0.9),rgba(0,0,0,0));
+}
+.mask p{
+	font-size: 28px;
+	line-height: 120px;
+	text-indent: 26px;
+	color: #fff;
+}
+.mask nav{
+	height: 10px;
+	position: absolute;
+	top: 56px;
+	right: 26px;
+}
+.mask nav a{
+	float: left;
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	background: rgb(255,255,255);
+	opacity: 0.5;
+	margin-left: 20px;
+}
+.mask nav a.active{
+	opacity: 1;
+}
+#score{
+	line-height: 60px;
+	padding: 17px 0 22px 26px;
+	border-bottom: 1px solid #e5e5e5;
+}
+#score h2{
+	font-size: 28px;
+}
+#score li{
+	height: 60px;
+	position: relative;
+	font-size: 24px;
+}
+#score nav{
+	position: absolute;
+	left: 187px;
+	top: 12px;
+}
+#score nav a{
+	float: left;
+	width: 38px;
+	height: 36px;
+	margin-right: 40px;
+	background: url(img/star.png) no-repeat -38px 0;
+	transition: .3s;
+}
+#score nav .active{
+	background-position: 0 0;
+}
+.tags{
+	padding: 21px 0 0 26px;
+}
+.tags h2{
+	line-height: 54px;
+	font-size: 28px;
+}
+.tags label{
+	float: left;
+	line-height: 50px;
+	margin: 10px 14px 10px 3px;
+	font-size: 22px;
+}
+.tags input{
+	display: none;
+}
+.tags span{
+	border: 1px solid #cdd6e1; 
+	padding: 10px 24px;
+	border-radius: 26px;
+}
+.tags input:checked+span{
+	background: #3c9bbb;
+	color: #fff;
+}
+
+/* 跳转页 */
+#mask{
+	background: url(img/mask.png) no-repeat rgba(0,0,0,0.7) center 350px;;
+	opacity: 0;
+	transition: 1s;
+}
+
+/* 新闻页 */
+#news{
+	opacity: 0;
+	transition: .5s;
+	background: #eee;
+}
+#news h2{
+	line-height: 80px;
+	padding: 24px 0 0 34px;
+	font-size: 26px;
+}
+.file{
+	height: 188px;
+	background: #fff;
+}
+.file label{
+	width: 50%;
+	height: 100%;
+	float: left;
+	box-sizing: border-box;
+	padding-top: 100px;
+	line-height: 52px;
+	text-align: center;
+	font-size: 28px;
+}
+.file label:nth-of-type(1){
+	border-right: 1px solid #eee;
+	background: url(img/camera1.png) no-repeat center 24px;
+}
+.file label:nth-of-type(2){
+	background: url(img/camera2.png) no-repeat center 30px;
+}
+.file input{
+	display: none;
+}
+
+/* 表单页 */
+#form{
+	background: #eee;
+}
+#formTag{
+	height: 341px;
+	padding-top:  52px;
+	color: #fff;
+	background: url(img/formBg.png);
+}
+#formTag input:checked+span{
+	border-color: #fff;
+	background-color: rgba(60,155,187,0.8);
+}
+.formText{
+	display: block;
+	width: 100%;
+	font-size: 26px;
+	line-height: 50px;
+	padding: 10px 20px;
+	margin-top: 30px;
+	box-sizing: border-box;
+}
